@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/cool.css">
+    <title>Cool Efficiency Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card mt-5" style="width: 100%;">
+                <div class="card-header text-center">
+                    <h1>Cool Efficiency Prediction</h1>
+                </div>
+                <div class="card-body">
+                    <form id="coolForm" method="post" onsubmit="send_data(event)">
+                        <div class="mb-3">
+                            <label for="Relative_Compactness" class="form-label">Relative Compactness</label>
+                            <input type="number" step="0.01" class="form-control" id="Relative_Compactness" name="Relative_Compactness" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Surface_Area" class="form-label">Surface Area</label>
+                            <input type="number" step="0.01" class="form-control" id="Surface_Area" name="Surface_Area" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Wall_Area" class="form-label">Wall Area</label>
+                            <input type="number" step="0.01" class="form-control" id="Wall_Area" name="Wall_Area" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Roof_Area" class="form-label">Roof Area</label>
+                            <input type="number" step="0.01" class="form-control" id="Roof_Area" name="Roof_Area" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Overall_Height" class="form-label">Overall Height</label>
+                            <input type="number" step="0.01" class="form-control" id="Overall_Height" name="Overall_Height" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Orientation" class="form-label">Orientation</label>
+                            <input type="number" step="0.01" class="form-control" id="Orientation" name="Orientation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Glazing_Area" class="form-label">Glazing Area</label>
+                            <input type="number" step="0.01" class="form-control" id="Glazing_Area" name="Glazing_Area" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Glazing_Area_Distribution" class="form-label">Glazing Area Distribution</label>
+                            <input type="number" step="0.01" class="form-control" id="Glazing_Area_Distribution" name="Glazing_Area_Distribution" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Predict Cool Efficiency</button>
+                    </form>
+                    <!-- Placeholder for the prediction result -->
+                    <div id="prediction" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function send_data(event) {
+            event.preventDefault();
+            var form = document.getElementById('coolForm');
+            var formData = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/predict_cool', true);
+            document.getElementById("prediction").innerHTML = "Predicting Cool Efficiency...";
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    document.getElementById("prediction").innerHTML = "Predicted Cool Efficiency: " + xhr.responseText;
+                }
+            }
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
