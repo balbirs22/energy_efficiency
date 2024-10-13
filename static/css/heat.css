@@ -1,52 +1,99 @@
-/* General styling for the heat prediction page */
+/* General body styling for heat prediction */
 body {
-    background-color: #fff3cd;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
     text-align: center;
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #e74c3c; /* Red for heat */
     margin-bottom: 20px;
-    color: #856404;
 }
 
 input[type="number"] {
+    font-size: 1rem;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #dfe6e9;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #e74c3c; /* Red border on focus for heat */
+    outline: none;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
 }
 
 .btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #28a745;
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
-    background-color: #218838;
+    background-color: #c0392b;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-h3 {
-    margin-top: 20px;
-    color: #28a745;
+.prediction-result {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #16a085;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+    }
+
+    input[type="number"] {
+        font-size: 0.9rem;
+    }
+
+    .prediction-result {
+        font-size: 1.2rem;
+    }
 }
