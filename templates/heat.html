@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/heat.css">
-    <title>Heat Efficiency Prediction</title>
+    <title>Heat Load Prediction</title>
 </head>
 <body>
     <div class="container">
-        <h1>Heat Efficiency Prediction</h1>
+        <h1>Heat Load Prediction</h1>
         <form id="heatForm" method="post" onsubmit="send_data(event)">
             <label for="Relative_Compactness">Relative Compactness</label>
             <input type="number" step="0.01" id="Relative_Compactness" name="Relative_Compactness" required>
@@ -34,7 +34,7 @@
             <label for="Glazing_Area_Distribution">Glazing Area Distribution</label>
             <input type="number" step="1" id="Glazing_Area_Distribution" name="Glazing_Area_Distribution" required>
             
-            <button type="submit" class="btn">Predict Heat Efficiency</button>
+            <button type="submit" class="btn">Predict Heat Load</button>
         </form>
         <div id="prediction" class="prediction-result"></div>
     </div>

@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/cool.css">
-    <title>Cool Efficiency Prediction</title>
+    <title>Cool Load Prediction</title>
 </head>
 <body>
     <div class="container">
-        <h1>Cool Efficiency Prediction</h1>
+        <h1>Cool Load Prediction</h1>
         <form id="coolForm" method="post" onsubmit="send_data(event)">
             <label for="Relative_Compactness">Relative Compactness</label>
             <input type="number" step="0.01" id="Relative_Compactness" name="Relative_Compactness" required>
@@ -34,7 +34,7 @@
             <label for="Glazing_Area_Distribution">Glazing Area Distribution</label>
             <input type="number" step="1" id="Glazing_Area_Distribution" name="Glazing_Area_Distribution" required>
             
-            <button type="submit" class="btn">Predict Cool Efficiency</button>
+            <button type="submit" class="btn">Predict Cool Load</button>
         </form>
         <div id="prediction" class="prediction-result"></div>
     </div>
